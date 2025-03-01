@@ -62,8 +62,8 @@ export function SciNavbar() {
   }, []);
 
   return (
-    <div className="relative w-full bg-white border-b">
-      <Navbar className="rounded-none w-full shadow-none">
+    <div className="relative shadow-sm">
+      <Navbar className="rounded-none max-w-screen-lg shadow-none">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Link to={"/"}>
             <div className="flex absolute top-2 md:top-4 left-4 md:left-2 items-center h-10 my-2">

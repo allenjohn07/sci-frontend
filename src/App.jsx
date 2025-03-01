@@ -10,11 +10,11 @@ const App = () => {
   return (
     <div className='min-h-screen max-w-screen-lg mx-auto flex flex-col justify-between'>
       <Router>
-        <div className='sticky top-0 z-50 w-full'><SciNavbar /></div>
+        <div className='sticky top-0 z-50'><SciNavbar /></div>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
-            {/* <Route path='/rankings' element={<Ranking />} /> */}
+            {/* <Route path='/ranking' element={<Ranking />} /> */}
           </Routes>
         <div className='w-full mx-auto'><SciFooter /></div>
       </Router>

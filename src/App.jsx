@@ -5,22 +5,18 @@ import { SciNavbar } from './components/SciNavbar'
 import SciFooter from './components/SciFooter'
 import About from './pages/About'
 import Ranking from './pages/Ranking'
-import Login from './pages/Login'
 
 const App = () => {
   return (
-    <div>
+    <div className='min-h-screen max-w-screen-lg mx-auto flex flex-col justify-between'>
       <Router>
         <div className='sticky top-0 z-50'><SciNavbar /></div>
-        <div className='min-h-screen flex flex-col justify-between'>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
-            <Route path='/ranking' element={<Ranking />} />
-            <Route path='/login' element={<Login />} />
+            {/* <Route path='/ranking' element={<Ranking />} /> */}
           </Routes>
-        </div>
-        <SciFooter />
+        <div className='w-full mx-auto'><SciFooter /></div>
       </Router>
     </div>
   )

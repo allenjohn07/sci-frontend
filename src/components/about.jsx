@@ -8,9 +8,9 @@ export default function AboutComponent() {
       }, []);
 
     return (
-        <div className="container max-w-screen-lg mx-auto px-4 md:px-8 py-8 md:py-14">
+        <div className="container about_page_div px-4 md:px-8 py-8 md:py-14">
             <div className="text-left">
-                <h1 className="scroll-m-20 mb-6 border-b md:text-center pb-2 text-3xl font-semibold tracking-tight first:mt-0">About Us</h1>
+                <h1 className="mb-6 border-b md:text-center pb-2 text-3xl font-semibold tracking-tight first:mt-0">About Us</h1>
                 <p className="text-lg md:text-xl font-semibold">Who We Are</p>
                 <p className="mb-4">
                     SpeedCubers India (SCI) is the official regional organization dedicated to advancing the art and sport of speedcubing across India. Just as Cubing China and Cubing USA serve their respective countries, SCI aims to unify and support the Indian cubing community, ensuring it thrives at both grassroots and competitive levels.

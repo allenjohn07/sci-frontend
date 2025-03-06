@@ -1,10 +1,10 @@
-import RankingComponent from '@/components/ranking'
+import RankingsPage from '@/components/ranking'
 import React from 'react'
 
 const Ranking = () => {
   return (
     <>
-      <RankingComponent />
+      <RankingsPage />
     </>
   )
 }

@@ -18,11 +18,11 @@ const UpComingCompetitions = ({ upComingCompetitons }) => {
         <CarouselContent>
           {upComingCompetitons?.map((competition) => (
             <CarouselItem
-              key={competition.name}
+              key={competition.competitionId}
               className="basis-1/2 md:basis-1/3"
             >
               <CardComponent
-                compImg={`https://competition-posters.s3.us-west-2.amazonaws.com/${competition.compImg}`}
+                compImg={`https://competition-posters.s3.us-west-2.amazonaws.com/${competition.competitionId}.jpg`}
                 name={competition.name}
               />
             </CarouselItem>

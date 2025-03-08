@@ -1,0 +1,76 @@
+{
+  "333-KL-average": [
+    {
+      "rank": 1,
+      "wca_id": "2017JOHN14",
+      "name": "Allen John",
+      "result": 840,
+      "competitionName": "Kumaraguru Open 2024"
+    },
+    {
+      "rank": 2,
+      "wca_id": "2015KHAN18",
+      "name": "Muhammed Shehzad Khan",
+      "result": 892,
+      "competitionName": "TamilNadu Cube Challenge 2024"
+    },
+    {
+      "rank": 3,
+      "wca_id": "2012JAME04",
+      "name": "Daniel James",
+      "result": 1591,
+      "competitionName": "Selam Summer Open 2024"
+    },
+    {
+      "rank": 4,
+      "wca_id": "2016LATH02",
+      "name": "Lukhman Abdul Latheef",
+      "result": 1750,
+      "competitionName": "Kumaraguru Open 2024"
+    },
+    {
+      "rank": 5,
+      "wca_id": "2012CHAK01",
+      "name": "Hariprasad CM",
+      "result": 4203,
+      "competitionName": "TamilNadu Cube Challenge 2024"
+    }
+  ],
+  "333-KL-single": [
+    {
+      "rank": 1,
+      "wca_id": "2015KHAN18",
+      "name": "Muhammed Shehzad Khan",
+      "result": 641,
+      "competitionName": "TamilNadu Cube Challenge 2024"
+    },
+    {
+      "rank": 2,
+      "wca_id": "2017JOHN14",
+      "name": "Allen John",
+      "result": 735,
+      "competitionName": "Kumaraguru Open 2024"
+    },
+    {
+      "rank": 3,
+      "wca_id": "2012JAME04",
+      "name": "Daniel James",
+      "result": 1197,
+      "competitionName": "Selam Summer Open 2024"
+    },
+    {
+      "rank": 4,
+      "wca_id": "2016LATH02",
+      "name": "Lukhman Abdul Latheef",
+      "result": 1432,
+      "competitionName": "Kumaraguru Open 2024"
+    },
+    {
+      "rank": 5,
+      "wca_id": "2012CHAK01",
+      "name": "Hariprasad CM",
+      "result": 3204,
+      "competitionName": "TamilNadu Cube Challenge 2024"
+    }
+  ]
+}

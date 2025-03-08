@@ -62,9 +62,9 @@ export function SciNavbar() {
   }, []);
 
   return (
-    <div className="relative w-full bg-white border-b">
-      <Navbar className="rounded-none w-full shadow-none">
-        <div className="flex items-center justify-between text-blue-gray-900">
+    <div className="relative bg-gray-50 border-b">
+      <Navbar className="rounded-none border-none w-full bg-gray-50 shadow-none">
+        <div className="flex items-center justify-between bg-gray-50 text-blue-gray-900">
           <Link to={"/"}>
             <div className="flex absolute top-2 md:top-4 left-4 md:left-2 items-center h-10 my-2">
               {/* for larger screens */}
@@ -84,7 +84,7 @@ export function SciNavbar() {
               {/* <NavList /> */}
 
               {/* for coming soon */}
-              {/* <Link className="hover:underline hover:underline-offset-2" to={"/rankings"}>Rankings</Link> */}
+              <Link className="hover:underline hover:underline-offset-2" to={"/rankings"}>Rankings</Link>
               <Link className="hover:underline hover:underline-offset-2" to={"/about"}>About</Link>
             </div>
           </div>

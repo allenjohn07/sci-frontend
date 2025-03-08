@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Select,
     SelectContent,
@@ -11,7 +11,14 @@ import {
   import { events, states } from "@/lib/rankings";
   import "@cubing/icons";
 
-const RankingFilter = () => {
+const RankingFilter = ({setFilterParams}) => {
+
+  const [filter, setFilter] = useState({
+    event: "",
+    state: "",
+    type: ""
+  })
+
   return (
     <div>
         {/* Ranking Filters */}
@@ -20,7 +27,7 @@ const RankingFilter = () => {
           <label htmlFor="event-select" className="text-sm font-medium">
             Event
           </label>
-          <Select>
+          <Select onValueChange={(value) => setFilter({...filter, event: value})}>
             <SelectTrigger id="event-select" className="w-full">
               <SelectValue placeholder="Select event" />
             </SelectTrigger>
@@ -45,7 +52,7 @@ const RankingFilter = () => {
           <label htmlFor="state-select" className="text-sm font-medium">
             State
           </label>
-          <Select>
+          <Select onValueChange={(value) => setFilter({...filter, state: value})}>
             <SelectTrigger id="state-select" className="w-full">
               <SelectValue placeholder="Select state" />
             </SelectTrigger>
@@ -53,8 +60,8 @@ const RankingFilter = () => {
               <SelectGroup>
                 {states.map((state, index) => {
                   return (
-                    <SelectItem value={state} key={index}>
-                      {state}
+                    <SelectItem value={state.id} key={index}>
+                      {state.name}
                     </SelectItem>
                   );
                 })}
@@ -67,7 +74,7 @@ const RankingFilter = () => {
           <label htmlFor="type-select" className="text-sm font-medium">
             Type
           </label>
-          <Select>
+          <Select onValueChange={(value) => setFilter({...filter, type: value})}>
             <SelectTrigger id="type-select" className="w-full">
               <SelectValue placeholder="Select type" />
             </SelectTrigger>
@@ -81,7 +88,9 @@ const RankingFilter = () => {
         </div>
 
         <div className="md:col-span-1 flex items-end py-2 md:py-0">
-          <Button className="w-full">Show Results</Button>
+          <Button onClick={() => {setFilterParams(`${filter.event}-${filter.state}-${filter.type}`); console.log(filter);
+          
+          }} className="w-full bg-blue-gray-900 hover:bg-blue-gray-900/95">Show Results</Button>
         </div>
       </div>
     </div>

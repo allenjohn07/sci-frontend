@@ -14,7 +14,8 @@ const UpComingCompetitions = ({ upComingCompetitons }) => {
       <h4 className="scroll-m-20 text-xl font-semibold tracking-tight border-b pb-2">
         Upcoming Competitions
       </h4>
-      <Carousel>
+      {
+        upComingCompetitons.length > 0 ? <Carousel>
         <CarouselContent>
           {upComingCompetitons?.map((competition) => (
             <CarouselItem
@@ -30,7 +31,8 @@ const UpComingCompetitions = ({ upComingCompetitons }) => {
         </CarouselContent>
         <CarouselPrevious />
         <CarouselNext />
-      </Carousel>
+      </Carousel> : <p className="text-start text-muted-foreground">No upcoming competitions</p>
+      }
     </div>
   );
 };

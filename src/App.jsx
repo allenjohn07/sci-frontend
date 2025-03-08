@@ -5,20 +5,27 @@ import { SciNavbar } from './components/SciNavbar'
 import SciFooter from './components/SciFooter'
 import About from './pages/About'
 import Ranking from './pages/Ranking'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 const App = () => {
   return (
-    <div className='min-h-screen max-w-screen-lg mx-auto flex flex-col justify-between'>
-      <Router>
-        <div className='sticky top-0 z-50 w-full'><SciNavbar /></div>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            {/* <Route path='/rankings' element={<Ranking />} /> */}
-          </Routes>
-        <div className='w-full mx-auto'><SciFooter /></div>
-      </Router>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className='bg-gray-50'>
+        <div className='min-h-screen max-w-screen-lg mx-auto flex flex-col justify-between'>
+          <Router>
+            <div className='sticky top-0 z-50 w-full'><SciNavbar /></div>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/about' element={<About />} />
+                <Route path='/rankings' element={<Ranking />} />
+              </Routes>
+            <div className='w-full mx-auto'><SciFooter /></div>
+          </Router>
+        </div>
+      </div>
+    </QueryClientProvider>
   )
 }
 

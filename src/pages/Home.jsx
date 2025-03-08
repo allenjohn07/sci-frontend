@@ -5,8 +5,8 @@ import React from 'react'
 const Home = () => {
   return (
     <>
-      {/* <HomeComponent /> */}
-      <ComingSoon/>
+      <HomeComponent />
+      {/* <ComingSoon/> */}
     </>
   )
 }

@@ -12,7 +12,10 @@ import { fetchRankings } from '@/api/fetchRankings';
 
 
 const RankingsTable = ({filterParams}) => { 
-  
+
+  //filterParams is converted to a string to be used as a query key
+  const filterString = `${filterParams.event}-${filterParams.state}-${filterParams.type}`;
+   
   const {data, isFetching, isError} = useQuery({
     queryKey: ['rankings'],
     queryFn: () => fetchRankings()
@@ -23,7 +26,7 @@ const RankingsTable = ({filterParams}) => {
 
   return (
     <div>
-      {data && data[filterParams] ? <div className="rounded-md border">
+      {data && data[filterString] ? <div className="rounded-md border">
         <Table>
           <TableHeader>
             <TableRow>
@@ -35,7 +38,7 @@ const RankingsTable = ({filterParams}) => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data[filterParams]?.map((item) => (
+            {data[filterString]?.map((item) => (
               <TableRow key={item.rank}>
                 <TableCell className="font-semibold px-5">{item.rank}</TableCell>
                 <TableCell className="text-nowrap">{item.wca_id}</TableCell>

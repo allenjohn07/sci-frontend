@@ -4,7 +4,7 @@ import RankingsTable from "./rankingsTable";
 
 export default function RankingsPage() {
 
-  const [filterParams, setFilterParams] = useState("")
+  const [filterParams, setFilterParams] = useState({"event": "", "state": "", "type": ""});
   
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -71,4 +71,16 @@ export const competitions = [
     start_date: "2025-02-22",
     end_date: "2025-02-23",
   },
+  {
+    competitionId: "AnnaKalyanaminJolarpet2025",
+    name: "Anna Kalyanam in Jolarpet 2025",
+    start_date: "2025-03-15",
+    end_date: "2025-03-16",
+  },
+  {
+    competitionId: "CubingComestoMadurai2025",
+    name: "Cubing Comes to Madurai 2025",
+    start_date: "2025-04-20",
+    end_date: "2025-04-20",
+  },
 ];

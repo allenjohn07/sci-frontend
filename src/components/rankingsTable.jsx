@@ -39,12 +39,12 @@ const RankingsTable = ({filterParams}) => {
           </TableHeader>
           <TableBody>
             {data[filterString]?.map((item) => (
-              <TableRow key={item.rank}>
+              <TableRow key={item.wca_id}>
                 <TableCell className="font-semibold px-5">{item.rank}</TableCell>
                 <TableCell className="text-nowrap">{item.wca_id}</TableCell>
                 <TableCell className="text-nowrap">{item.name}</TableCell>
                 <TableCell className="font-semibold px-5">{(item.result/100).toFixed(2)}</TableCell>
-                <TableCell className="text-nowrap">{item.competitionName}</TableCell>
+                <TableCell className="text-nowrap">{item.competition_id}</TableCell>
               </TableRow>
             ))}
           </TableBody>

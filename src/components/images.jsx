@@ -2,26 +2,26 @@ import * as React from "react"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { Image } from "@nextui-org/react"
 
-export const images = [
+const images = [
   {
     id: "1",
-    path: "/images/DSC09967.jpg",
+    path: "about-photo-1",
   },
   {
     id: "2",
-    path: "/images/IMG_1103.JPG",
+    path: "about-photo-2",
   },
   {
     id: "3",
-    path: "/images/DSC_0280.JPG",
+    path: "about-photo-3",
   },
   {
     id: "4",
-    path: "/images/DSC09961.jpg",
+    path: "about-photo-4",
   },
   {
     id: "5",
-    path: "/images/DSC_0297.JPG",
+    path: "about-photo-5",
   }
 ]
 
@@ -33,7 +33,7 @@ export function ImagesComponent() {
           <figure key={image.id} className="shrink-0">
             <div className="overflow-hidden rounded-md">
               <Image
-                src={image.path}
+                src={`https://sci-about-photos.s3.eu-north-1.amazonaws.com/${image.path}.jpg`}
                 alt="sci-image"
                 className="aspect-[3/4] h-[200px] md:h-[250px] w-[250px] md:w-[350px] object-cover"
               />

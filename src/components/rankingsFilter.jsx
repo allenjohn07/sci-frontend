@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "./ui/button";
-import { events, states } from "@/lib/rankings";
+import { events, statres } from "@/lib/rankings";
 import "@cubing/icons";
 
 const RankingFilter = ({ setFilterParams }) => {

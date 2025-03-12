@@ -1,11 +1,11 @@
 const URL =
-  "https://sci-temporary-bucket.s3.us-west-2.amazonaws.com/rankings.json";
+  "https://sci-temporary-bucket.s3.us-west-2.amazonaws.com/states.json";
 
-export const fetchRankings = async () => {
+export const fetchStates = async () => {
   try {
     const response = await fetch(URL);
     const data = await response.json();
-    return data;
+    return data?.states;
   } catch (error) {
     throw error;
   }

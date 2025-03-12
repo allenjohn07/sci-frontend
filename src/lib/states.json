@@ -1,0 +1,152 @@
+{
+  "states": [
+    {
+      "name": "Andhra Pradesh",
+      "id": "AD"
+    },
+    {
+      "name": "Arunachal Pradesh",
+      "id": "AR"
+    },
+    {
+      "name": "Assam",
+      "id": "AS"
+    },
+    {
+      "name": "Bihar",
+      "id": "BR"
+    },
+    {
+      "name": "Chattisgarh",
+      "id": "CG"
+    },
+    {
+      "name": "Delhi",
+      "id": "DL"
+    },
+    {
+      "name": "Goa",
+      "id": "GA"
+    },
+    {
+      "name": "Gujarat",
+      "id": "GJ"
+    },
+    {
+      "name": "Haryana",
+      "id": "HR"
+    },
+    {
+      "name": "Himachal Pradesh",
+      "id": "HP"
+    },
+    {
+      "name": "Jammu and Kashmir",
+      "id": "JK"
+    },
+    {
+      "name": "Jharkhand",
+      "id": "JH"
+    },
+    {
+      "name": "Karnataka",
+      "id": "KA"
+    },
+    {
+      "name": "Kerala",
+      "id": "KL"
+    },
+    {
+      "name": "Lakshadweep Islands",
+      "id": "LD"
+    },
+    {
+      "name": "Madhya Pradesh",
+      "id": "MP"
+    },
+    {
+      "name": "Maharashtra",
+      "id": "MH"
+    },
+    {
+      "name": "Manipur",
+      "id": "MN"
+    },
+    {
+      "name": "Meghalaya",
+      "id": "ML"
+    },
+    {
+      "name": "Mizoram",
+      "id": "MZ"
+    },
+    {
+      "name": "Nagaland",
+      "id": "NL"
+    },
+    {
+      "name": "Odisha",
+      "id": "OD"
+    },
+    {
+      "name": "Pondicherry",
+      "id": "PY"
+    },
+    {
+      "name": "Punjab",
+      "id": "PB"
+    },
+    {
+      "name": "Rajasthan",
+      "id": "RJ"
+    },
+    {
+      "name": "Sikkim",
+      "id": "SK"
+    },
+    {
+      "name": "Tamil Nadu",
+      "id": "TN"
+    },
+    {
+      "name": "Telangana",
+      "id": "TG"
+    },
+    {
+      "name": "Tripura",
+      "id": "TR"
+    },
+    {
+      "name": "Uttar Pradesh",
+      "id": "UP"
+    },
+    {
+      "name": "Uttarakhand",
+      "id": "UK"
+    },
+    {
+      "name": "West Bengal",
+      "id": "WB"
+    },
+    {
+      "name": "Andaman and Nicobar Islands",
+      "id": "AN"
+    },
+    {
+      "name": "Chandigarh",
+      "id": "CH"
+    },
+    {
+      "name": "Dadra & Nagar Haveli and Daman & Diu",
+      "id": "DN"
+    },
+    {
+      "name": "Ladakh",
+      "id": "LA"
+    },
+    {
+      "name": "Other Territory",
+      "id": "OT"
+    }
+  ]
+}

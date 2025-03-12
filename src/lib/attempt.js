@@ -1,4 +1,4 @@
-// import { events } from '../wca-data.js.erb';
+// this file is copied from https://github.com/thewca/worldcubeassociation.org/blob/db9e6a3a1b996cf7b624dd5183dac3ea766b3b07/app/webpacker/lib/wca-live/attempts.js
 
 export const SKIPPED_VALUE = 0;
 export const DNF_VALUE = -1;
@@ -202,26 +202,3 @@ export function formatAttemptResult(attemptResult, eventId) {
   if (eventId === '333fm') return formatFmAttemptResult(attemptResult);
   return centisecondsToClockFormat(attemptResult);
 }
-
-export function formatAttemptsForResult(result, eventId) {
-  // Only highlight best and worst if the number of unskipped attempts is 5.
-  const highlightBestAndWorst = result.attempts.filter((a) => a !== 0).length === 5;
-  return result.attempts.map((attempt, index) => {
-    const attemptStr = formatAttemptResult(attempt, eventId);
-    return highlightBestAndWorst && (result.best_index === index || result.worst_index === index)
-      ? `(${attemptStr})` : attemptStr;
-  }).join(' ');
-}
-
-// export function attemptTypeById(eventId) {
-//   if (events.byId[eventId].isTimedEvent) {
-//     return 'time';
-//   }
-//   if (events.byId[eventId].isFewestMoves) {
-//     return 'moves';
-//   }
-//   if (events.byId[eventId].isMultipleBlindfolded) {
-//     return 'points';
-//   }
-//   throw Error('Unknown Event Type');
-// }

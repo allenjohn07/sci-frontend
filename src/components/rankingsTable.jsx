@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/table";
 import { useQuery } from '@tanstack/react-query';
 import { fetchRankings } from '@/api/fetchRankings';
+import { formatAttemptResult } from '@/lib/attempt';
 
 
 const RankingsTable = ({filterParams}) => { 
@@ -43,7 +44,7 @@ const RankingsTable = ({filterParams}) => {
                 <TableCell className="font-semibold px-5">{item.rank}</TableCell>
                 <TableCell className="text-nowrap">{item.wca_id}</TableCell>
                 <TableCell className="text-nowrap">{item.name}</TableCell>
-                <TableCell className="font-semibold px-5">{(item.result/100).toFixed(2)}</TableCell>
+                <TableCell className="font-semibold px-5 text-nowrap">{formatAttemptResult(item?.result, filterParams?.event)}</TableCell>
                 <TableCell className="text-nowrap">{item.competition_id}</TableCell>
               </TableRow>
             ))}

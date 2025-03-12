@@ -8,12 +8,24 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "./ui/button";
-import { events, states } from "@/lib/rankings";
+import { events } from "@/lib/events";
 import "@cubing/icons";
+import { useQuery } from "@tanstack/react-query";
+import { fetchStates } from "@/api/fetchStates";
 
 const RankingFilter = ({ setFilterParams }) => {
 
   const [filter, setFilter] = useState({"event": "", "state": "", "type": ""});
+
+  //fetch states from the api
+  const { data: states, isFetching, isError } = useQuery({
+    queryKey: ["states"],
+    queryFn: () => fetchStates(),
+  });
+
+
+  if (isFetching) return <p>Loading...</p>;
+  if (isError) return <p>Error: {isError}</p>;
 
   return (
     <div>
@@ -58,7 +70,7 @@ const RankingFilter = ({ setFilterParams }) => {
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                {states.map((state, index) => {
+                {states?.map((state, index) => {
                   return (
                     <SelectItem value={state.id} key={index}>
                       {state.name}

@@ -3,7 +3,7 @@ import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 
 export default function CardComponent({ compImg, name }) {
     return (
-        <Card shadow="none" className="border bg-gray-50 py-2 md:py-4">
+        <Card shadow="none" className="border bg-gray-50 py-2">
             <CardBody className="overflow-visible py-0 px-1 md:px-2 flex items-center">
                 <Image
                     alt="Card background"

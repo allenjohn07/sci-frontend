@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Competitions from "./competitions";
 import { MoreLinks } from "./links";
-import { InstagramEmbed } from 'react-social-media-embed';
+import { InstagramEmbed } from "./InstagramEmbed";
 
 const HomeComponent = () => {
   useEffect(() => {
@@ -17,7 +17,10 @@ const HomeComponent = () => {
         </span>
       </h2>
       <div className="w-full flex justify-center">
-        <InstagramEmbed className="w-full md:w-2/3" url="https://www.instagram.com/p/C4Yf-CqS7q2/" />
+        <InstagramEmbed
+          postUrl="https://www.instagram.com/p/C4Yf-CqS7q2/"
+          caption={true}
+        />
       </div>
       <div>
         <Competitions />

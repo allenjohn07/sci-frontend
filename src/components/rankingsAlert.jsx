@@ -1,7 +1,7 @@
 import React from "react";
 import { Alert } from "@chakra-ui/react";
 
-const ChakraAlert = () => {
+const RankingAlert = () => {
   return (
     <Alert.Root className="my-6">
       <Alert.Title>
@@ -24,4 +24,4 @@ const ChakraAlert = () => {
   );
 };
 
-export default ChakraAlert;
+export default RankingAlert;

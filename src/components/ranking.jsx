@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import RankingFilter from "./rankingsFilter";
 import RankingsTable from "./rankingsTable";
-import ChakraAlert from "./chakraAlert";
+import RankingAlert from "./rankingsAlert";
 
 export default function RankingsPage() {
   const [filterParams, setFilterParams] = useState({
@@ -19,7 +19,7 @@ export default function RankingsPage() {
       <h1 className="mb-6 border-b md:text-center pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         Rankings
       </h1>
-      <ChakraAlert/>
+      <RankingAlert/>
       <RankingFilter setFilterParams={setFilterParams} />
       <RankingsTable filterParams={filterParams} />
     </div>

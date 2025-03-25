@@ -7,7 +7,7 @@ import About from "./pages/About";
 import Ranking from "./pages/Ranking";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ComingSoon from "./components/comingSoon";
-import Login from "./pages/Login";
+import LoginPage from "./app/login/page";
 
 const queryClient = new QueryClient();
 
@@ -28,7 +28,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/rankings" element={<Ranking />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<LoginPage />} />
             </Routes>
             <div className="w-full mx-auto">
               <SciFooter />

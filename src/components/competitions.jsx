@@ -33,8 +33,8 @@ const Competitions = () => {
 
   return (
     <div className="space-y-10 py-10">
-      <UpComingCompetitions upComingCompetitons={upComingCompetitons} />
-      <PastCompetitions pastCompetitons={pastCompetitons} />
+      {/* <UpComingCompetitions upComingCompetitons={upComingCompetitons} />
+      <PastCompetitions pastCompetitons={pastCompetitons} /> */}
     </div>
   );
 };

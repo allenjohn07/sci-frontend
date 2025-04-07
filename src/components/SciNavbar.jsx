@@ -1,110 +1,84 @@
+import { Menu, X } from "lucide-react";
 import React, { useState } from "react";
-import {
-  Navbar,
-  Collapse,
-  Typography,
-  IconButton,
-  List,
-} from "@material-tailwind/react";
-import {
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
-import logo from '../assets/SCI-Logo-only.png'
-import logo2 from '../assets/SCI-Logo.png'
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function NavList({ handleNavClose }) {
-  const [selectedLink, setSelectedLink] = useState(useLocation().pathname)
+const logo_with_text = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo-with-text.png";
+const logo = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo.png";
+
+export const SciNavbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
-    <List className="lg:flex-row items-end space-y-2 lg:space-y-0 my-2 md:my-4">
-      <Link onClick={() => setSelectedLink("/")} to={"/"}>
-        <Typography onClick={() => handleNavClose()}
-          variant="small"
-          color="blue-gray"
-          className="font-medium"
-
-        >
-          <span className={selectedLink === "/" ? "md:mx-4 font-semibold border-b-2 border-b-gray-800" : "hover:underline hover:underline-offset-4 md:mx-4 font-medium"}>Home</span>
-        </Typography>
-      </Link>
-      <Link onClick={() => setSelectedLink("/about")} to={"/about"}>
-        <Typography onClick={() => handleNavClose()}
-          variant="small"
-          color="blue-gray"
-          className="font-medium"
-        >
-          <span className={selectedLink === "/about" ? "md:mx-4 font-semibold border-b-2 border-b-gray-800" : "hover:underline hover:underline-offset-4 md:mx-4 font-medium"}>About</span>
-        </Typography>
-      </Link>
-      <Link onClick={() => setSelectedLink("/ranking")} to={"/ranking"}>
-        <Typography onClick={() => handleNavClose()}
-          variant="small"
-          color="blue-gray"
-          className="font-medium"
-        >
-          <span className={selectedLink === "/ranking" ? "md:mx-4 font-semibold border-b-2 border-b-gray-800" : "hover:underline hover:underline-offset-4 md:mx-4 font-medium"}>Ranking</span>
-        </Typography>
-      </Link>
-    </List>
-  );
-}
-
-export function SciNavbar() {
-  const [openNav, setOpenNav] = useState(false);
-
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false),
-    );
-  }, []);
-
-  return (
-    <div className="relative bg-gray-50 border-b">
-      <Navbar className="rounded-none border-none w-full bg-gray-50 shadow-none">
-        <div className="flex items-center justify-between bg-gray-50 text-blue-gray-900">
-          <Link to={"/"}>
-            <div className="flex absolute top-2 md:top-4 left-4 md:left-2 items-center h-10 my-2">
-              {/* for larger screens */}
-              <img className="w-[80px] hidden md:block" src={logo} alt="SCI-Logo" />
-              {/* for smaller screens */}
-              <img onClick={() => openNav && setOpenNav(!openNav)} className="w-[80px] block md:hidden" src={logo2} alt="SCI-Logo" />
-              <Typography
-                variant="h4"
-                className="cursor-pointer text-sm md:text-lg hidden md:block"
-              >
-                <span className="text-red-900">S</span><span className="text-sm">PEED</span><span className="text-red-900">C</span><span className="text-sm">UBERS</span> <span className="text-red-900">I</span><span className="text-sm">NDIA</span>
-              </Typography>
-            </div>
-          </Link>
-          <div className="flex items-center justify-center">
-            <div className="my-2 md:my-4 space-x-4">
-              {/* <NavList /> */}
-
-              {/* for coming soon */}
-              <Link className="hover:underline hover:underline-offset-2" to={"/rankings"}>Rankings</Link>
-              <Link className="hover:underline hover:underline-offset-2" to={"/about"}>About</Link>
-            </div>
+    <div className="bg-gray-50 text-blue-gray-900">
+      <div className="container mx-auto flex justify-between items-center px-4 md:px-8 border-b">
+        <Link to={"/"} onClick={closeMenu}>
+          {/* for larger screens */}
+          <div className="flex items-center">
+            <img className="w-[80px] hidden md:block" onClick={toggleMenu} src={logo} alt="SCI-Logo" />
+            <p className="hidden md:block font-semibold -ml-2">
+            <span className="text-red-900">S</span><span className="text-sm">PEED</span><span className="text-red-900">C</span><span className="text-sm">UBERS</span> <span className="text-red-900">I</span><span className="text-sm">NDIA</span>
+            </p>
           </div>
-          {/* <IconButton
-            variant="text"
-            color="black"
-            className="lg:hidden"
-            onClick={() => setOpenNav(!openNav)}
+          {/* for smaller screens */}
+          <img
+            onClick={toggleMenu}
+            className="w-[80px] block md:hidden -ml-3"
+            src={logo_with_text}
+            alt="SCI-Logo"
+          />
+        </Link>
+        <nav className="flex space-x-4">
+          <button className="md:hidden" onClick={toggleMenu}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+          <div className="hidden md:flex space-x-4">
+            <Link
+              to="/about"
+              className="hover:underline hover:underline-offset-2"
+            >
+              About
+            </Link>
+            <Link
+              to="/rankings"
+              className="hover:underline hover:underline-offset-2"
+            >
+              Rankings
+            </Link>
+          </div>
+        </nav>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+          isMenuOpen ? "max-h-[999px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="container mx-auto flex flex-col items-start space-y-2 p-4 px-4 border-b">
+          <Link
+            to="/about"
+            onClick={closeMenu}
+            className="hover:underline hover:underline-offset-2"
           >
-            {openNav ? (
-              <XMarkIcon className="h-6 w-6" strokeWidth={2} />
-            ) : (
-              <Bars3Icon className="h-6 w-6" strokeWidth={2} />
-            )}
-          </IconButton> */}
+            About
+          </Link>
+          <Link
+            to="/rankings"
+            onClick={closeMenu}
+            className="hover:underline hover:underline-offset-2"
+          >
+            Rankings
+          </Link>
         </div>
-        <Collapse open={openNav}>
-          <NavList handleNavClose={() => setOpenNav(!openNav)} />
-        </Collapse>
-      </Navbar>
+      </div>
     </div>
   );
-}
+};

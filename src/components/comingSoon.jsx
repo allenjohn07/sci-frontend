@@ -1,6 +1,7 @@
 import React from "react";
-import logo from "../assets/SCI-Logo-only.png";
 import Countdown from "react-countdown";
+
+const logo = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo.png";
 
 const CountdownRenderer = ({ formatted }) => {
   return (

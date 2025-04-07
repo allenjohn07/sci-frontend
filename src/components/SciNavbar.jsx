@@ -1,8 +1,9 @@
 import { Menu, X } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/SCI-Logo-only.png";
-import logo2 from "../assets/SCI-Logo.png";
+
+const logo_with_text = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo-with-text.png";
+const logo = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo.png";
 
 export const SciNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,7 +31,7 @@ export const SciNavbar = () => {
           <img
             onClick={toggleMenu}
             className="w-[80px] block md:hidden -ml-3"
-            src={logo2}
+            src={logo_with_text}
             alt="SCI-Logo"
           />
         </Link>

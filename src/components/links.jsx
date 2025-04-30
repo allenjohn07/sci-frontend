@@ -1,4 +1,4 @@
-import { Separator } from "@/components/ui/separator"
+import { Separator } from "./ui/separator"
 import { Link } from "react-router-dom"
 
 export function MoreLinks() {

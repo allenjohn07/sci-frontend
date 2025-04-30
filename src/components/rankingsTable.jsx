@@ -6,10 +6,10 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "./ui/table";
 import { useQuery } from '@tanstack/react-query';
-import { fetchRankings } from '@/api/fetchRankings';
-import { formatAttemptResult } from '@/lib/attempt';
+import { fetchRankings } from '../api/fetchRankings';
+import { formatAttemptResult } from '../lib/attempt';
 
 
 const RankingsTable = ({filterParams}) => { 

@@ -1,6 +1,6 @@
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 const logo_with_text = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo-with-text.png";
 const logo = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo.png";
@@ -19,7 +19,7 @@ export const SciNavbar = () => {
   return (
     <div className="bg-gray-50 text-blue-gray-900">
       <div className="container mx-auto flex justify-between items-center px-4 md:px-8 border-b">
-        <Link to={"/"} onClick={closeMenu}>
+        <Link href={"/"} onClick={closeMenu}>
           {/* for larger screens */}
           <div className="flex items-center">
             <img className="w-[80px] hidden md:block" onClick={toggleMenu} src={logo} alt="SCI-Logo" />
@@ -41,13 +41,13 @@ export const SciNavbar = () => {
           </button>
           <div className="hidden md:flex space-x-4">
             <Link
-              to="/about"
+              href="/about"
               className="hover:underline hover:underline-offset-2"
             >
               About
             </Link>
             <Link
-              to="/rankings"
+              href="/rankings"
               className="hover:underline hover:underline-offset-2"
             >
               Rankings
@@ -64,14 +64,14 @@ export const SciNavbar = () => {
       >
         <div className="container mx-auto flex flex-col items-start space-y-2 p-4 px-4 border-b">
           <Link
-            to="/about"
+            href="/about"
             onClick={closeMenu}
             className="hover:underline hover:underline-offset-2"
           >
             About
           </Link>
           <Link
-            to="/rankings"
+            href="/rankings"
             onClick={closeMenu}
             className="hover:underline hover:underline-offset-2"
           >

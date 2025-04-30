@@ -4,10 +4,10 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 module.exports = withMT({
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}",
-    "./app/**/*.{js,jsx}",
-    "./src/**/*.{js,jsx}",
+    "./pages/**/*.{js,jsx. ts, tsx}",
+    "./components/**/*.{js,jsx, ts, tsx}",
+    "./app/**/*.{js,jsx, ts, tsx}",
+    "./src/**/*.{js,jsx, ts, tsx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",

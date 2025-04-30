@@ -3,7 +3,7 @@ import Competitions from "./competitions";
 import { MoreLinks } from "./links";
 import { InstagramEmbed } from "./InstagramEmbed";
 
-const HomeComponent = () => {
+export const HomeComponent = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -29,5 +29,3 @@ const HomeComponent = () => {
     </div>
   );
 };
-
-export default HomeComponent;

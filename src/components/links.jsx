@@ -1,5 +1,5 @@
 import { Separator } from "./ui/separator"
-import { Link } from "react-router-dom"
+import Link from "next/link"
 
 export function MoreLinks() {
   return (
@@ -10,7 +10,7 @@ export function MoreLinks() {
       <div className="text-sm space-y-1s md:space-y-0 md:flex items-center gap-3">
         <a className="text-muted-foreground hover:underline hover:underline-offset-2" href="https://www.worldcubeassociation.org/competitions?region=India" target="_blank" rel="noopener noreferrer">Upcoming Competitions in India</a>
         <Separator orientation="vertical" />
-        <Link className="text-muted-foreground hover:underline hover:underline-offset-2" to={'/rankings'}>State Rankings</Link>
+        <Link className="text-muted-foreground hover:underline hover:underline-offset-2" href={'/rankings'}>State Rankings</Link>
         <Separator orientation="vertical" />
         <a className="text-muted-foreground hover:underline hover:underline-offset-2" href="https://live.worldcubeassociation.org/" target="_blank" rel="noopener noreferrer">WCA Live</a>
         <Separator orientation="vertical" />

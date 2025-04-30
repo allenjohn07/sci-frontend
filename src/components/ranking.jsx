@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import RankingFilter from "./rankingsFilter";
 import RankingsTable from "./rankingsTable";

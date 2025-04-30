@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import UpComingCompetitions from "./upComingCompetitions";
 import PastCompetitions from "./pastCompetitions";
 import { useQuery } from "@tanstack/react-query";
-import { fetchCompetitions } from "@/api/fetchCompetitions";
+import { fetchCompetitions } from "../api/fetchCompetitions";
 
 const Competitions = () => {
   

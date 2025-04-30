@@ -6,12 +6,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "./ui/select";
 import { Button } from "./ui/button";
-import { events } from "@/lib/events";
+import { events } from "../lib/events";
 import "@cubing/icons";
 import { useQuery } from "@tanstack/react-query";
-import { fetchStates } from "@/api/fetchStates";
+import { fetchStates } from "../api/fetchStates";
 
 const RankingFilter = ({ setFilterParams }) => {
 

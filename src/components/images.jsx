@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { ScrollArea, ScrollBar } from "./ui/scroll-area"
 import { Image } from "@nextui-org/react"
 
 const images = [

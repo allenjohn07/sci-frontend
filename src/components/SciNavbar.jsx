@@ -41,16 +41,22 @@ export const SciNavbar = () => {
           </button>
           <div className="hidden md:flex space-x-4">
             <Link
+              href="/rankings"
+              className="hover:underline hover:underline-offset-2"
+            >
+              Rankings
+            </Link>
+            <Link
               href="/about"
               className="hover:underline hover:underline-offset-2"
             >
               About
             </Link>
             <Link
-              href="/rankings"
+              href="/team"
               className="hover:underline hover:underline-offset-2"
             >
-              Rankings
+              Team
             </Link>
           </div>
         </nav>
@@ -63,6 +69,13 @@ export const SciNavbar = () => {
         }`}
       >
         <div className="container mx-auto flex flex-col items-start space-y-2 p-4 px-4 border-b">
+        <Link
+            href="/rankings"
+            onClick={closeMenu}
+            className="hover:underline hover:underline-offset-2"
+          >
+            Rankings
+          </Link>
           <Link
             href="/about"
             onClick={closeMenu}
@@ -71,11 +84,11 @@ export const SciNavbar = () => {
             About
           </Link>
           <Link
-            href="/rankings"
+            href="/team"
             onClick={closeMenu}
             className="hover:underline hover:underline-offset-2"
           >
-            Rankings
+            Team
           </Link>
         </div>
       </div>

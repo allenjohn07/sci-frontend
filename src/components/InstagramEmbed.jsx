@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect, useRef } from "react";
 
 export function InstagramEmbed({
   postUrl,
@@ -32,7 +33,7 @@ export function InstagramEmbed({
 
   // Extract post ID from URL
   const getPostId = (url) => {
-    const regex = /\/p\/([^\/]+)/;
+    const regex = /\/p\/([^/]+)/;
     const match = url.match(regex);
     return match ? match[1] : "";
   };

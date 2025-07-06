@@ -1,7 +1,7 @@
 import QueryProvider from "../components/QueryProvider";
 import SciFooterHolder from "../components/SciFooterHolder";
 import SciNavbarHolder from "../components/SciNavbarHolder";
-import { Provider } from "../components/ui/provider.jsx";
+import { Provider } from "@/components/ui/provider";
 import "./globals.css";
 
 import React from "react";

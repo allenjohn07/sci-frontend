@@ -1,4 +1,4 @@
-import { Separator } from "./ui/separator"
+import { Separator } from "@chakra-ui/react"
 import Link from "next/link"
 
 export function MoreLinks() {

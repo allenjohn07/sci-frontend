@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import UpComingCompetitions from "./upComingCompetitions";
 import PastCompetitions from "./pastCompetitions";
 import { useQuery } from "@tanstack/react-query";

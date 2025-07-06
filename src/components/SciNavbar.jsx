@@ -1,6 +1,6 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const logo_with_text = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo-with-text.png";
 const logo = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo.png";

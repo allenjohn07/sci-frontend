@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Competitions from "./competitions";
 import { MoreLinks } from "./links";
 import { InstagramEmbed } from "./InstagramEmbed";
@@ -13,7 +13,7 @@ export const HomeComponent = () => {
       <h2 className="scroll-m-20 border-b pb-2 text-3xl text-center font-semibold tracking-tight first:mt-0">
         SpeedCubers India <br />
         <span className="scroll-m-20 mb-10 pb-2 text-xl font-normal tracking-tight first:mt-0">
-          Awaiting WCA approval for being India's official RO
+          Awaiting WCA approval for being India&apos;s official RO
         </span>
       </h2>
       <div className="w-full flex justify-center">

@@ -33,7 +33,7 @@ export default function AboutComponent() {
                 </p>
                 <p className="text-lg md:text-xl font-semibold">Why Choose SpeedCubers India?</p>
                 <p>
-                    By choosing to be a part of SpeedCubers India, you are contributing to a larger movement that aims to elevate the cubing community in India. Together, we can ensure that every cuber in India has access to the resources, support, and opportunities they need to excel.
+                    By choosing to be a part of SpeedCubers India, you are contributing to a larger movement that aims to elevate the cubing community in India. Together, we can ensure that every cuber in India has access to the resources, support, and opportunities they need to excel.
                 </p>
             </div>
             <div/>

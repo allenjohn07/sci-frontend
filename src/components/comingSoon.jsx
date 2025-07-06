@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import Countdown from "react-countdown";
 
 const logo = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo.png";
@@ -25,7 +25,7 @@ const ComingSoon = () => {
           <h1 className="text-4xl font-bold">Coming Soon</h1>
         </div>
         <p className="text-gray-600 px-5">
-          We're working hard to bring you something amazing.
+          We&apos;re working hard to bring you something amazing.
         </p>
         <div className="flex justify-center">
           <Countdown

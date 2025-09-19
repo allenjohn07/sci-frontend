@@ -85,7 +85,7 @@ const Departments = () => {
   }
 
   return (
-    <div className="container mx-auto">
+    <div>
       {data.map((dept: any) => (
         <div key={dept.name} className="mb-12">
           <h2 className="text-start text-lg md:text-xl font-semibold">

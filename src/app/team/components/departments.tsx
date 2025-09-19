@@ -1,8 +1,51 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import { fetchTeams } from "../api/fetchTeams";
+import { fetchTeams } from "../../../api/fetchTeams";
 import Link from "next/link";
+
+const Departments = () => {
+  const { data: teams, isFetching, isError } = useQuery({
+    queryKey: ["teams"],
+    queryFn: () => fetchTeams(),
+  });
+
+  if (isFetching) {
+    return (
+      <Loading />
+    );
+  }
+
+  if (isError) {
+    return (
+      <Error />
+    );
+  }
+
+  return (
+    <div>
+      {teams.map((dept: any) => (
+        <div key={dept.name} className="mb-12">
+          <h2 className="text-start text-lg md:text-xl font-semibold">
+            {dept.name}
+          </h2>
+          {dept.members && dept.members.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-items-center mb-4">
+              {dept.members.map((person: any) => (
+                <PersonCard key={person.id} person={person} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center text-gray-500 py-8">
+              <p>No members in this department.</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 
 const PersonCard = ({ person }: { person: any }) => {
   const [imageError, setImageError] = useState(false);
@@ -48,64 +91,25 @@ const PersonCard = ({ person }: { person: any }) => {
   );
 };
 
-const Departments = () => {
-  const { data, isFetching, isError } = useQuery({
-    queryKey: ["teams"],
-    queryFn: () => fetchTeams(),
-  });
-
-  if (isFetching) {
-    return (
-      <div className="container mx-auto">
-        <div className="flex items-center justify-center">
-          <p className="text-lg">Loading departments...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (isError) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center">
-          <p className="text-red-600 text-lg">Failed to load departments. Please try again later.</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!data || data.length === 0) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center">
-          <p className="text-gray-600 text-lg">No departments found.</p>
-        </div>
-      </div>
-    );
-  }
-
+const Loading = () => {
   return (
-    <div>
-      {data.map((dept: any) => (
-        <div key={dept.name} className="mb-12">
-          <h2 className="text-start text-lg md:text-xl font-semibold">
-            {dept.name}
-          </h2>
-          {dept.members && dept.members.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-items-center mb-4">
-              {dept.members.map((person: any) => (
-                <PersonCard key={person.id} person={person} />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center text-gray-500 py-8">
-              <p>No members in this department.</p>
-            </div>
-          )}
-        </div>
-      ))}
+    <div className="container mx-auto">
+      <div className="flex items-center justify-center">
+        <p className="text-lg">Loading departments...</p>
+      </div>
     </div>
-  );
-};
+  )
+}
+
+const Error = () => {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="text-center">
+        <p className="text-red-600 text-lg">Failed to load departments. Please try again later.</p>
+      </div>
+    </div>
+  )
+}
+
 
 export default Departments;

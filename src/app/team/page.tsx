@@ -1,4 +1,4 @@
-import Departments from '@/components/departments'
+import Departments from '@/app/team/components/departments'
 import React from 'react'
 
 const Team = () => {

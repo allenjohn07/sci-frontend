@@ -11,17 +11,20 @@ const Departments = () => {
   });
 
   if (isFetching) {
-    return (
-      <Loading />
-    );
+    return <Loading />
   }
 
   if (isError) {
-    return (
-      <Error />
-    );
+    return <Error />
   }
 
+  return (
+    <DepartmentSection teams={teams} />
+  );
+};
+
+
+const DepartmentSection = ({teams}: {teams: any}) => {
   return (
     <div>
       {teams.map((dept: any) => (
@@ -43,9 +46,8 @@ const Departments = () => {
         </div>
       ))}
     </div>
-  );
-};
-
+  )
+}
 
 const PersonCard = ({ person }: { person: any }) => {
   const [imageError, setImageError] = useState(false);

@@ -1,4 +1,6 @@
-const URL = "http://localhost:4000/teams"
+const URL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/teams`
+console.log(URL);
+
 
 export const fetchTeams = async () => {
   const response = await fetch(URL);

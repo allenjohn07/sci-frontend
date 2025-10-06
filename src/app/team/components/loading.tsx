@@ -7,7 +7,7 @@ import {
 export const Loading = () => {
   return (
     <Box maxW="container.xl" mx="auto">
-      <Center>
+      <Center my="40">
         <Text fontSize="lg">Loading departments...</Text>
       </Center>
     </Box>

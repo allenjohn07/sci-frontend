@@ -1,15 +1,50 @@
-import Departments from '@/app/team/components/departments'
-import React from 'react'
+"use client";
+import React from "react";
+import { Loading } from "./components/loading";
+import { Error } from "./components/error";
+import { fetchTeams } from "@/api/fetchTeams";
+import { useQuery } from "@tanstack/react-query";
+import { DepartmentSection } from "./components/departmentSection";
+
+interface Person {
+  id: string;
+  name: string;
+  image: string;
+  url: string;
+  wca_id?: string;
+}
+
+interface Team {
+  name: string;
+  members: Person[];
+}
 
 const Team = () => {
   return (
     <div className="container px-4 md:px-8 py-8 md:py-14 text-blue-gray-900 min-h-screen">
-        <h1 className="mb-6 border-b md:text-center pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+      <h1 className="mb-6 border-b md:text-center pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         Our Team
       </h1>
-        <Departments/>
+      <Departments/>
     </div>
-  )
-}
+  );
+};
 
-export default Team
+const Departments = () => {
+    const { data: teams, isFetching, isError } = useQuery<Team[]>({
+      queryKey: ["teams"],
+      queryFn: () => fetchTeams(),
+    });
+  
+    if (isFetching) {
+      return <Loading />;
+    }
+  
+    if (isError) {
+      return <Error />;
+    }
+
+    return <DepartmentSection teams={teams || []} />;
+  };
+
+export default Team;

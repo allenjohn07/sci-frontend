@@ -5,6 +5,7 @@ import { Error } from "./components/error";
 import { fetchTeams } from "@/api/fetchTeams";
 import { useQuery } from "@tanstack/react-query";
 import { DepartmentSection } from "./components/departmentSection";
+import { Box } from "@chakra-ui/react";
 
 interface Person {
   id: string;
@@ -21,30 +22,38 @@ interface Team {
 
 const Team = () => {
   return (
-    <div className="container px-4 md:px-8 py-8 md:py-14 text-blue-gray-900 min-h-screen">
+    <Box
+      px={{ base: 4, md: 8 }}
+      py={{ base: 8, md: 14 }}
+      minH="100vh"
+    >
       <h1 className="mb-6 border-b md:text-center pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         Our Team
       </h1>
-      <Departments/>
-    </div>
+      <Departments />
+    </Box>
   );
 };
 
 const Departments = () => {
-    const { data: teams, isFetching, isError } = useQuery<Team[]>({
-      queryKey: ["teams"],
-      queryFn: () => fetchTeams(),
-    });
-  
-    if (isFetching) {
-      return <Loading />;
-    }
-  
-    if (isError) {
-      return <Error />;
-    }
+  const {
+    data: teams,
+    isFetching,
+    isError,
+  } = useQuery<Team[]>({
+    queryKey: ["teams"],
+    queryFn: () => fetchTeams(),
+  });
 
-    return <DepartmentSection teams={teams || []} />;
-  };
+  if (isFetching) {
+    return <Loading />;
+  }
+
+  if (isError) {
+    return <Error />;
+  }
+
+  return <DepartmentSection teams={teams || []} />;
+};
 
 export default Team;

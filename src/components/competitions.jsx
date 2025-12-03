@@ -16,7 +16,8 @@ const Competitions = () => {
   const upComingCompetitons = useMemo(
     () =>
       data?.filter(
-        (competition) => new Date(competition.end_date) > new Date()
+        // this is now set to < which is similar to pastcompetition for demo purposes only.
+        (competition) => new Date(competition.end_date) < new Date()
       ),
     [data]
   );
@@ -33,7 +34,7 @@ const Competitions = () => {
 
   return (
     <div className="space-y-10">
-      <UpComingCompetitions upComingCompetitons={pastCompetitons} />
+      <UpComingCompetitions upComingCompetitons={upComingCompetitons} />
       <PastCompetitions pastCompetitons={pastCompetitons} />
     </div>
   );

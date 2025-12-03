@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import CardComponent from "./card";
 
 const PastCompetitions = ({ pastCompetitons }) => {

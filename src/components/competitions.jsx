@@ -16,8 +16,7 @@ const Competitions = () => {
   const upComingCompetitons = useMemo(
     () =>
       data?.filter(
-        // this is now set to < which is similar to pastcompetition for demo purposes only.
-        (competition) => new Date(competition.end_date) < new Date()
+        (competition) => new Date(competition.end_date) > new Date()
       ),
     [data]
   );

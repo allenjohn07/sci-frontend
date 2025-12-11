@@ -7,6 +7,7 @@ import {
   Center,
   VStack,
   Link as ChakraLink,
+  AspectRatio,
 } from "@chakra-ui/react";
 import Link from "next/link";
 
@@ -34,60 +35,110 @@ export const PersonCard = ({ person }: { person: Person }) => {
       rel="noopener noreferrer"
       aria-label={`View ${person.name}'s profile`}
       _hover={{ textDecoration: "none" }}
-      className="flex flex-col"
-      mb={2}
+      w="full"
+      display="flex"
+      flexDirection="column"
     >
-      <Box
-        shadow="md"
-        rounded="lg"
-        mx={1}
-        my={1}
-        _hover={{ shadow: "lg" }}
-        transition="all 0.2s ease-in-out"
-      >
-        <VStack w="full" rounded="lg" p={2}>
-          <Box
-            position="relative"
-            w={{ base: "300px", md: "250px", lg: "200px" }}
-            h={{ base: "300px", md: "250px", lg: "200px" }}
+      <VStack w="full" align="stretch">
+        <Box
+          bg="white"
+          shadow="md"
+          rounded="lg"
+          overflow="hidden"
+          _hover={{ 
+            shadow: "xl",
+            transform: "translateY(-4px)",
+          }}
+          transition="all 0.3s ease-in-out"
+          w="full"
+        >
+          <AspectRatio ratio={1} w="full">
+            <Box position="relative" w="full" h="full">
+              {!imageLoaded && !imageError && (
+                <Center 
+                  position="absolute" 
+                  inset={0} 
+                  bg="gray.100"
+                >
+                  <Spinner 
+                    size={{ base: "md", md: "lg" }} 
+                    color="gray.500"
+                  />
+                </Center>
+              )}
+              {!imageError ? (
+                <Image
+                  src={imageUrl}
+                  alt={`${person.name}${
+                    person.wca_id ? ` (${person.wca_id})` : ""
+                  }`}
+                  w="full"
+                  h="full"
+                  objectFit="cover"
+                  opacity={!imageLoaded ? 0 : 1}
+                  transition="opacity 0.3s ease-in-out"
+                  onLoad={() => setImageLoaded(true)}
+                  onError={() => {
+                    setImageError(true);
+                    setImageLoaded(true);
+                  }}
+                  loading="lazy"
+                />
+              ) : (
+                <Center 
+                  position="absolute" 
+                  inset={0} 
+                  bg="gray.100"
+                  flexDirection="column"
+                  gap={2}
+                >
+                  <Box
+                    w={{ base: 8, md: 10 }}
+                    h={{ base: 8, md: 10 }}
+                    bg="gray.300"
+                    rounded="full"
+                  />
+                  <Text 
+                    color="gray.500" 
+                    fontSize={{ base: "xs", md: "sm" }}
+                    fontWeight="medium"
+                  >
+                    No Image
+                  </Text>
+                </Center>
+              )}
+            </Box>
+          </AspectRatio>
+        </Box>
+        <Box px={1}>
+          <Text 
+            textAlign="center" 
+            fontSize={{ base: "sm", md: "md" }}
+            fontWeight="semibold"
+            color="gray.800"
+            lineHeight="1.2"
+            overflow="hidden"
+            textOverflow="ellipsis"
+            css={{
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+            }}
           >
-            {!imageLoaded && !imageError && (
-              <Center position="absolute" inset={0} bg="gray.200" rounded="lg">
-                <Spinner size="lg" color="gray.600" />
-              </Center>
-            )}
-            {!imageError ? (
-              <Image
-                src={imageUrl}
-                alt={`${person.name}${
-                  person.wca_id ? ` (${person.wca_id})` : ""
-                }`}
-                w="full"
-                h="full"
-                objectFit="cover"
-                rounded="lg"
-                opacity={!imageLoaded ? 0 : 1}
-                transition="opacity 0.2s"
-                onLoad={() => setImageLoaded(true)}
-                onError={() => {
-                  setImageError(true);
-                  setImageLoaded(true);
-                }}
-                loading="lazy"
-              />
-            ) : (
-              <Center position="absolute" inset={0} bg="gray.200" rounded="lg">
-                <Text color="gray.500" fontSize="xs" textAlign="center">
-                  No Image
-                </Text>
-              </Center>
-            )}
-          </Box>
-        </VStack>
-      </Box>
-      <Text textAlign="center" fontSize="sm" fontWeight="medium">
-        {person.name}
-      </Text>
+            {person.name}
+          </Text>
+          {person.wca_id && (
+            <Text
+              textAlign="center"
+              fontSize={{ base: "xs", md: "sm" }}
+              color="gray.500"
+              mt={1}
+            >
+              {person.wca_id}
+            </Text>
+          )}
+        </Box>
+      </VStack>
     </ChakraLink>
   );
 };

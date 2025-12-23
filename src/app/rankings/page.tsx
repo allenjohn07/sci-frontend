@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import RankingAlert from "./components/rankingsAlert";
 import RankingFilter from "./components/rankingsFilter";
 import RankingsTable from "./components/rankingsTable";
@@ -22,9 +22,19 @@ const Rankings = () => {
       color="blue-gray-900"
       minH="100vh"
     >
-      <h1 className="mb-6 border-b md:text-center pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+      <Heading
+        as="h1"
+        fontSize="3xl"
+        mb={6}
+        pb={2}
+        borderBottom="1px solid"
+        borderColor="gray.300"
+        textAlign={{ base: "left", md: "center" }}
+        fontWeight="semibold"
+        letterSpacing="tight"
+      >
         Rankings
-      </h1>
+      </Heading>
       <RankingAlert />
       <RankingFilter setFilterParams={setFilterParams} />
       <RankingsTable filterParams={filterParams} />

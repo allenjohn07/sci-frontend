@@ -35,7 +35,7 @@ const UpComingCompetitions = ({ upComingCompetitons }) => {
               flexShrink={0}
             >
               <CardComponent
-                compImg={`https://competition-posters.s3.us-west-2.amazonaws.com/PragyanCubeOpen2025.jpg`}
+                compImg={`https://competition-posters.s3.us-west-2.amazonaws.com/${competition.competitionId}.jpg`}
                 name={competition.name}
               />
             </Box>

@@ -1,28 +1,40 @@
+"use client";
+
+import { Button, Box, Heading, Text } from "@chakra-ui/react";
 import React from "react";
-import { Button } from "@/components/ui/button";
 
 const LoginForm = () => {
-  const handleLogin = async () => {
+  const handleLogin = () => {
     window.location.replace("http://localhost:4000/api/auth/login");
   };
 
   return (
-    // Right portion with WCA login button
-    <div className="flex flex-1 items-center justify-center p-8 md:p-12">
-      <div className="w-full max-w-sm space-y-6">
-        <div className="space-y-2 text-center">
-          <h2 className="text-2xl font-semibold tracking-tight">
-            Welcome back
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            Sign in with your WCA account to continue
-          </p>
-        </div>
-        <Button onClick={() => handleLogin()} className="w-full" size="lg">
-          <span>Login with WCA</span>
+    <Box flex="1" p={{ base: 0, md: 12 }}>
+      <Box maxW="md">
+        <Heading
+          as="h2"
+          fontSize="xl"
+          mb={2}
+          fontWeight="semibold"
+          textAlign={"center"}
+        >
+          Welcome back
+        </Heading>
+
+        <Text fontSize="sm" textAlign={"center"} color="gray.600" mb={6}>
+          Sign in with your WCA account to continue
+        </Text>
+
+        <Button
+          onClick={handleLogin}
+          w="full"
+          bg="gray.200"
+          _hover={{ bg: "gray.300" }}
+        >
+          Login with WCA
         </Button>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

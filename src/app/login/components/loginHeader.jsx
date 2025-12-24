@@ -1,15 +1,37 @@
 import React from "react";
+import { Box, Heading } from "@chakra-ui/react";
 
 const LoginHeader = () => {
   return (
-    // Left portion with heading
-    <div className="flex flex-1 items-center justify-center p-8 md:p-12 border-r-0 md:border-r border-b md:border-b-0">
-      <div className="max-w-md space-y-4 text-center">
-        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+    <Box
+      flex="1"
+      p={{ base: 0, md: 12 }}
+      pb={{ base: 4, md: 12 }}
+      mb={{ base: 6, md: 0 }}
+      borderBottom={{ base: "1px solid", md: "none" }}
+      borderRight={{ base: "none", md: "1px solid" }}
+      borderColor={{ base: "gray.200", md: "gray.200" }}
+    >
+       <Heading
+          as="h1"
+          textAlign={"center"}
+          fontSize={{ base: "3xl", md: "4xl" }}
+          fontWeight="semibold"
+          letterSpacing="tight"
+          display={{ base: "none", md: "block" }}
+        >
           Login to <br /> Speedcubers India
-        </h1>
-      </div>
-    </div>
+        </Heading>
+        <Heading
+          as="h1"
+          fontSize={{ base: "3xl", md: "4xl" }}
+          fontWeight="semibold"
+          letterSpacing="tight"
+          display={{ base: "block", md: "none" }}
+        >
+          Login
+        </Heading>
+    </Box>
   );
 };
 

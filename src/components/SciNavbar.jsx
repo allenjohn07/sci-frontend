@@ -1,8 +1,10 @@
+import { Button } from "@chakra-ui/react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
-const logo_with_text = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo-with-text.png";
+const logo_with_text =
+  "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo-with-text.png";
 const logo = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo.png";
 
 export const SciNavbar = () => {
@@ -22,9 +24,19 @@ export const SciNavbar = () => {
         <Link href={"/"} onClick={closeMenu}>
           {/* for larger screens */}
           <div className="flex items-center">
-            <img className="w-[80px] hidden md:block" onClick={toggleMenu} src={logo} alt="SCI-Logo" />
+            <img
+              className="w-[80px] hidden md:block"
+              onClick={toggleMenu}
+              src={logo}
+              alt="SCI-Logo"
+            />
             <p className="hidden md:block font-semibold -ml-2">
-            <span className="text-red-900">S</span><span className="text-sm">PEED</span><span className="text-red-900">C</span><span className="text-sm">UBERS</span> <span className="text-red-900">I</span><span className="text-sm">NDIA</span>
+              <span className="text-red-900">S</span>
+              <span className="text-sm">PEED</span>
+              <span className="text-red-900">C</span>
+              <span className="text-sm">UBERS</span>{" "}
+              <span className="text-red-900">I</span>
+              <span className="text-sm">NDIA</span>
             </p>
           </div>
           {/* for smaller screens */}
@@ -39,7 +51,7 @@ export const SciNavbar = () => {
           <button className="md:hidden" onClick={toggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          <div className="hidden md:flex space-x-4">
+          <div className="hidden md:flex space-x-4 items-center">
             <Link
               href="/rankings"
               className="hover:underline hover:underline-offset-2"
@@ -58,6 +70,15 @@ export const SciNavbar = () => {
             >
               Team
             </Link>
+            <Link href="/login">
+              <Button
+                bg={"gray.muted"}
+                paddingX={"4"}
+                _hover={{ bg: "gray.300" }}
+              >
+                Login
+              </Button>
+            </Link>
           </div>
         </nav>
       </div>
@@ -68,8 +89,8 @@ export const SciNavbar = () => {
           isMenuOpen ? "max-h-[999px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="container mx-auto flex flex-col items-start space-y-2 p-4 px-4 border-b">
-        <Link
+        <div className="container flex flex-col items-start space-y-2 p-4 px-4 border-b">
+          <Link
             href="/rankings"
             onClick={closeMenu}
             className="hover:underline hover:underline-offset-2"
@@ -89,6 +110,16 @@ export const SciNavbar = () => {
             className="hover:underline hover:underline-offset-2"
           >
             Team
+          </Link>
+          <Link className="w-full" href="/login" onClick={closeMenu}>
+            <Button
+              w={"full"}
+              bg={"gray.muted"}
+              paddingX={"4"}
+              _hover={{ bg: "gray.300" }}
+            >
+              Login
+            </Button>
           </Link>
         </div>
       </div>

@@ -2,9 +2,17 @@ import QueryProvider from "../components/QueryProvider";
 import SciFooterHolder from "../components/SciFooterHolder";
 import SciNavbarHolder from "../components/SciNavbarHolder";
 import { Provider } from "@/components/ui/provider";
+import type { Metadata } from "next";
 import "./globals.css";
 
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "SpeedCubers India",
+  icons: {
+    icon: "/sci-logo.png",
+  },
+};
 
 export default function RootLayout({
   children,

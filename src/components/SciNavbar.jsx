@@ -1,11 +1,12 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const logo_with_text = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo-with-text.png";
-const logo = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo.png";
+const LOGO = "/sci-logo.png";
+const LOGO_WITH_TEXT = "/sci-logo-with-text.png";
 
 const NAVBAR_HEIGHT = "80px";
 const LOGO_SIZE = "80px";
@@ -34,13 +35,14 @@ export const SciNavbar = () => {
               className="shrink-0"
               style={{ width: LOGO_SIZE, height: LOGO_SIZE }}
             >
-              <img
+              <Image
                 className="w-full h-full object-contain"
                 onClick={toggleMenu}
-                src={logo}
+                src={LOGO}
                 alt="SCI-Logo"
                 width={80}
                 height={80}
+                priority
               />
             </div>
             <p className="font-semibold -ml-2 leading-none">
@@ -57,13 +59,14 @@ export const SciNavbar = () => {
             className="md:hidden shrink-0 -ml-3"
             style={{ width: LOGO_SIZE, height: LOGO_SIZE }}
           >
-            <img
+            <Image
               onClick={toggleMenu}
               className="w-full h-full object-contain"
-              src={logo_with_text}
+              src={LOGO_WITH_TEXT}
               alt="SCI-Logo"
               width={80}
               height={80}
+              priority
             />
           </div>
         </Link>

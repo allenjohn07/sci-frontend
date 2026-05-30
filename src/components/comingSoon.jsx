@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Countdown from "react-countdown";
 
-const logo = "https://sci-assets.s3.eu-north-1.amazonaws.com/sci-logo.png";
+const LOGO = "/sci-logo.png";
 
 const CountdownRenderer = ({ formatted }) => {
   return (
@@ -20,7 +20,7 @@ const ComingSoon = () => {
       <div className="text-center space-y-2">
         <div className="-space-y-3">
           <div className="flex justify-center">
-            <img className="w-[80px]" src={logo} alt="SCI-Logo" />
+            <img className="w-[80px]" src={LOGO} alt="SCI-Logo" />
           </div>
           <h1 className="text-4xl font-bold">Coming Soon</h1>
         </div>

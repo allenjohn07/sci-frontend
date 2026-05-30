@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
+import { staggerContainer, staggerItem } from "@/lib/motion";
 import { Box, Text } from "@chakra-ui/react";
-import CardComponent from './card';
+import { motion } from "framer-motion";
+import CardComponent from "./card";
 
 const UpComingCompetitions = ({ upComingCompetitons }) => {
   return (
@@ -10,11 +12,15 @@ const UpComingCompetitions = ({ upComingCompetitons }) => {
       </h4>
       
       {upComingCompetitons.length > 0 ? (
-        <Box 
-          display="flex" 
-          gap={4} 
+        <Box
+          as={motion.div}
+          display="flex"
+          gap={4}
           overflowX="auto"
           pb={2}
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
           css={{
             '&::-webkit-scrollbar': {
               height: '5px',
@@ -30,11 +36,12 @@ const UpComingCompetitions = ({ upComingCompetitons }) => {
         >
           {upComingCompetitons?.map((competition) => (
             <Box
+              as={motion.div}
               key={competition.competitionId}
-              minW={{ base: "50%", md: "33.333%" }}
-              flexShrink={0}
+              variants={staggerItem}
             >
               <CardComponent
+                competitionId={competition.competitionId}
                 compImg={`https://competition-posters.s3.us-west-2.amazonaws.com/${competition.competitionId}.jpg`}
                 name={competition.name}
               />

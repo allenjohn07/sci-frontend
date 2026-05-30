@@ -13,12 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gray-50">
         <QueryProvider>
           <Provider>
             <div className="bg-gray-50">
               <div className="min-h-screen max-w-screen-lg mx-auto flex flex-col justify-between">
-                <div className="sticky top-0 z-50 w-full">
+                <div className="sticky top-0 z-50 w-full min-h-[80px] bg-gray-50">
                   <SciNavbarHolder />
                 </div>
                 {children}

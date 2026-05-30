@@ -2,6 +2,7 @@
 
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { Box, Text, Button, Select, Portal } from "@chakra-ui/react";
 import { events } from "../../../lib/events";
 import "@cubing/icons";
@@ -19,7 +20,7 @@ const RankingFilter = ({ setFilterParams }) => {
   });
 
 
-  if (isFetching) return <p>Loading...</p>;
+  if (isFetching) return <LoadingSpinner />;
   if (isError) return <p>Error: {isError}</p>;
 
   return (

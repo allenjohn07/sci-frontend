@@ -1,28 +1,56 @@
 /* eslint-disable react/prop-types */
 import { Box, Image, Text } from "@chakra-ui/react";
+import { Tooltip } from "./ui/tooltip";
 
-export default function CardComponent({ compImg, name }) {
+const CARD_WIDTH = "200px";
+const POSTER_HEIGHT = "240px";
+const WCA_COMPETITION_URL = "https://www.worldcubeassociation.org/competitions";
+
+export default function CardComponent({ compImg, name, competitionId }) {
+    const competitionUrl = `${WCA_COMPETITION_URL}/${competitionId}`;
+
     return (
-        <Box 
-            borderWidth="1px" 
-            borderRadius="lg" 
-            bg="gray.50" 
-            overflow="hidden"
-        >
-            <Box>
+        <Tooltip content={name} showArrow openDelay={300}>
+            <Box
+                as="a"
+                href={competitionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={name}
+                w={CARD_WIDTH}
+                flexShrink={0}
+                display="block"
+                cursor="pointer"
+                borderWidth="1px"
+                borderRadius="lg"
+                bg="gray.50"
+                overflow="hidden"
+                transition="box-shadow 0.2s ease, transform 0.2s ease"
+                boxShadow="sm"
+                _hover={{
+                    boxShadow: "md",
+                    transform: "translateY(-2px)",
+                }}
+            >
                 <Image
-                    alt="Card background"
+                    alt={name}
                     src={compImg}
                     objectFit="cover"
-                    height={{ base: "200px", sm: "250px", md: "300px" }}
-                    width={"100%"}
+                    w={CARD_WIDTH}
+                    h={POSTER_HEIGHT}
+                    pointerEvents="none"
                 />
+                <Box py={1.5} px={2}>
+                    <Text
+                        fontSize="10px"
+                        lineHeight="1.25"
+                        fontWeight="semibold"
+                        noOfLines={2}
+                    >
+                        {name}
+                    </Text>
+                </Box>
             </Box>
-            <Box py={2} px={{ base: 2, sm: 3, md: 4 }}>
-                <Text fontSize="xs" fontWeight="bold" noOfLines={1}>
-                    {name}
-                </Text>
-            </Box>
-        </Box>
+        </Tooltip>
     );
 }

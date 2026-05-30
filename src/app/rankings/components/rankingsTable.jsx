@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { Box, Text } from "@chakra-ui/react";
 import {
   Table,
@@ -23,7 +24,7 @@ const RankingsTable = ({filterParams}) => {
     queryFn: () => fetchRankings()
   })
 
-  if (isFetching) return <Text>Loading...</Text>;
+  if (isFetching) return <LoadingSpinner />;
   if (isError) return <Text>Error: {isError}</Text>;
 
   return (

@@ -11,6 +11,13 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 
+export const TEAM_CARD_WIDTH = { base: "160px", md: "200px" };
+
+export const teamMemberGridColumns = (count?: number) => ({
+  base: "repeat(2, 160px)",
+  md: count ? `repeat(${count}, 200px)` : "repeat(auto-fill, 200px)",
+});
+
 interface Person {
   id: string;
   name: string;
@@ -35,24 +42,25 @@ export const PersonCard = ({ person }: { person: Person }) => {
       rel="noopener noreferrer"
       aria-label={`View ${person.name}'s profile`}
       _hover={{ textDecoration: "none" }}
-      w="full"
+      w={TEAM_CARD_WIDTH}
+      flexShrink={0}
       display="flex"
       flexDirection="column"
     >
-      <VStack w="full" align="stretch">
+      <VStack w={TEAM_CARD_WIDTH} align="stretch">
         <Box
           bg="white"
           shadow="md"
           rounded="lg"
           overflow="hidden"
-          _hover={{ 
+          _hover={{
             shadow: "xl",
             transform: "translateY(-4px)",
           }}
           transition="all 0.3s ease-in-out"
-          w="full"
+          w={TEAM_CARD_WIDTH}
         >
-          <AspectRatio ratio={1} w="full">
+          <AspectRatio ratio={1} w={TEAM_CARD_WIDTH}>
             <Box position="relative" w="full" h="full">
               {!imageLoaded && !imageError && (
                 <Center 

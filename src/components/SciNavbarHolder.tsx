@@ -1,14 +1,9 @@
-'use client';
+"use client";
 
-import dynamic from 'next/dynamic';
-
-const DynamicSciNavbar = dynamic(
-  () => import('./SciNavbar').then((mod) => mod.SciNavbar),
-  { ssr: false }
-);
+import { SciNavbar } from "./SciNavbar";
 
 const SciNavbarHolder = () => {
-  return <DynamicSciNavbar />;
+  return <SciNavbar />;
 };
 
 export default SciNavbarHolder;

@@ -1,14 +1,7 @@
-'use client';
-
-import dynamic from 'next/dynamic';
-
-const DynamicSciFooter = dynamic(
-  () => import('./SciFooter'),
-  { ssr: false }
-);
+import SciFooter from "./SciFooter";
 
 const SciFooterHolder = () => {
-  return <DynamicSciFooter />;
+  return <SciFooter />;
 };
 
 export default SciFooterHolder;

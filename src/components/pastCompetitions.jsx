@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
+import { staggerContainer, staggerItem } from "@/lib/motion";
 import { Box } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import CardComponent from "./card";
 
 const PastCompetitions = ({ pastCompetitons }) => {
@@ -9,10 +11,14 @@ const PastCompetitions = ({ pastCompetitons }) => {
         Past Competitions
       </h4>
       <Box
+        as={motion.div}
         display="flex"
         gap={4}
         overflowX="auto"
         pb={2}
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
         css={{
             '&::-webkit-scrollbar': {
               height: '5px',
@@ -28,11 +34,12 @@ const PastCompetitions = ({ pastCompetitons }) => {
       >
         {pastCompetitons?.map((competition) => (
           <Box
+            as={motion.div}
             key={competition.competitionId}
-            minW={{ base: "50%", md: "33.333%" }}
-            flexShrink={0}
+            variants={staggerItem}
           >
             <CardComponent
+              competitionId={competition.competitionId}
               compImg={`https://competition-posters.s3.us-west-2.amazonaws.com/${competition.competitionId}.jpg`}
               name={competition.name}
             />

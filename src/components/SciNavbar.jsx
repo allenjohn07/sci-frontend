@@ -58,12 +58,6 @@ export const SciNavbar = () => {
             >
               Team
             </Link>
-            <a
-              href={`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/login`}
-              className="hover:underline hover:underline-offset-2"
-            >
-              Login
-            </a>
           </div>
         </nav>
       </div>
@@ -96,13 +90,6 @@ export const SciNavbar = () => {
           >
             Team
           </Link>
-          <a
-            href={`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/login`}
-            onClick={closeMenu}
-            className="hover:underline hover:underline-offset-2"
-          >
-            Login
-          </a>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const ALLOWED_PATHS = new Set(["/", "/about", "/team"]);
+const ALLOWED_PATHS = new Set(["/", "/about", "/team", "/login"]);
 
 export function middleware(request: NextRequest) {
   const pathname =

@@ -1,9 +1,11 @@
 "use client";
 
+import { fetchMe, logout } from "@/api/auth";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const LOGO = "/sci-logo.png";
 const LOGO_WITH_TEXT = "/sci-logo-with-text.png";
@@ -11,8 +13,26 @@ const LOGO_WITH_TEXT = "/sci-logo-with-text.png";
 const NAVBAR_HEIGHT = "80px";
 const LOGO_SIZE = "80px";
 
+const linkClassName = "hover:underline hover:underline-offset-2";
+
 export const SciNavbar = () => {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetchMe().then((me) => {
+      if (!cancelled) {
+        setUser(me);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [pathname]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -21,6 +41,22 @@ export const SciNavbar = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setUser(null);
+      closeMenu();
+    } catch {
+      // Keep current user state if logout request fails
+    }
+  };
+
+  const authLinks = user ? (
+    <button type="button" onClick={handleLogout} className={linkClassName}>
+      Logout
+    </button>
+  ) : null;
 
   return (
     <div className="bg-gray-50 text-gray-900">
@@ -74,19 +110,14 @@ export const SciNavbar = () => {
           <button className="md:hidden" onClick={toggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          <div className="hidden md:flex space-x-4">
-            <Link
-              href="/about"
-              className="hover:underline hover:underline-offset-2"
-            >
+          <div className="hidden md:flex items-center space-x-4">
+            <Link href="/about" className={linkClassName}>
               About
             </Link>
-            <Link
-              href="/team"
-              className="hover:underline hover:underline-offset-2"
-            >
+            <Link href="/team" className={linkClassName}>
               Team
             </Link>
+            {authLinks}
           </div>
         </nav>
       </div>
@@ -101,17 +132,18 @@ export const SciNavbar = () => {
           <Link
             href="/about"
             onClick={closeMenu}
-            className="hover:underline hover:underline-offset-2"
+            className={linkClassName}
           >
             About
           </Link>
           <Link
             href="/team"
             onClick={closeMenu}
-            className="hover:underline hover:underline-offset-2"
+            className={linkClassName}
           >
             Team
           </Link>
+          {authLinks}
         </div>
       </div>
     </div>

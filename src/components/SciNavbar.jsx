@@ -19,18 +19,8 @@ export const SciNavbar = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    let cancelled = false;
-
-    fetchMe().then((me) => {
-      if (!cancelled) {
-        setUser(me);
-      }
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [pathname]);
+    fetchMe().then(setUser);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

@@ -4,7 +4,6 @@ import { fetchMe, logout } from "@/api/auth";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const LOGO = "/sci-logo.png";
@@ -14,7 +13,6 @@ const NAVBAR_HEIGHT = "80px";
 const LOGO_SIZE = "80px";
 
 export const SciNavbar = () => {
-  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
 

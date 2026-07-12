@@ -13,8 +13,6 @@ const LOGO_WITH_TEXT = "/sci-logo-with-text.png";
 const NAVBAR_HEIGHT = "80px";
 const LOGO_SIZE = "80px";
 
-const linkClassName = "hover:underline hover:underline-offset-2";
-
 export const SciNavbar = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,16 +45,10 @@ export const SciNavbar = () => {
       await logout();
       setUser(null);
       closeMenu();
-    } catch {
-      // Keep current user state if logout request fails
+    } catch (error) {
+      console.error("Logout failed:", error);
     }
   };
-
-  const authLinks = user ? (
-    <button type="button" onClick={handleLogout} className={linkClassName}>
-      Logout
-    </button>
-  ) : null;
 
   return (
     <div className="bg-gray-50 text-gray-900">
@@ -111,13 +103,27 @@ export const SciNavbar = () => {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/about" className={linkClassName}>
+            <Link
+              href="/about"
+              className="hover:underline hover:underline-offset-2"
+            >
               About
             </Link>
-            <Link href="/team" className={linkClassName}>
+            <Link
+              href="/team"
+              className="hover:underline hover:underline-offset-2"
+            >
               Team
             </Link>
-            {authLinks}
+            {user ? (
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="hover:underline hover:underline-offset-2"
+              >
+                Logout
+              </button>
+            ) : null}
           </div>
         </nav>
       </div>
@@ -132,18 +138,26 @@ export const SciNavbar = () => {
           <Link
             href="/about"
             onClick={closeMenu}
-            className={linkClassName}
+            className="hover:underline hover:underline-offset-2"
           >
             About
           </Link>
           <Link
             href="/team"
             onClick={closeMenu}
-            className={linkClassName}
+            className="hover:underline hover:underline-offset-2"
           >
             Team
           </Link>
-          {authLinks}
+          {user ? (
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="hover:underline hover:underline-offset-2"
+            >
+              Logout
+            </button>
+          ) : null}
         </div>
       </div>
     </div>
